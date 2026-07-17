@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Created-By: Codex Local Plugin Builder
+Build-JVM: JetBrains Runtime 25
+Build-SDK: PyCharm 2026.1.1
+

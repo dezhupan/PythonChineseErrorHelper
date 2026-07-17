@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<idea-plugin>
+    <id>com.codex.pyerrorhelper</id>
+    <name>Python Chinese Error Helper</name>
+    <vendor email="local-plugin@invalid.example">Codex Local</vendor>
+    <version>2.1.0</version>
+
+    <description><![CDATA[
+        Explains Python runtime tracebacks in Chinese directly inside the PyCharm Run console.<br>
+        Python 程序运行失败后，自动分析 traceback，用中文指出错误原因、最可能需要修改的文件和行号，
+        并提供一键跳转。插件完全离线，不上传代码，也不需要 API Key。
+    ]]></description>
+
+    <idea-version since-build="261" until-build="261.*"/>
+    <depends>com.intellij.modules.platform</depends>
+    <depends>PythonCore</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <localInspection language="Python"
+                         shortName="MissingParametersCall"
+                         displayName="Missing model.parameters() call"
+                         groupName="Python Chinese Error Helper"
+                         enabledByDefault="true"
+                         level="WARNING"
+                         implementationClass="com.codex.pyerrorhelper.MissingParametersCallInspection"/>
+    </extensions>
+
+    <projectListeners>
+        <listener class="com.codex.pyerrorhelper.PythonErrorExecutionListener"
+                  topic="com.intellij.execution.ExecutionListener"/>
+    </projectListeners>
+</idea-plugin>
